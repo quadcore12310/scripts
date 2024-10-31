@@ -1,26 +1,26 @@
 LoadingScreenValue = true
-LoadingText1 = "Loading Library"
-LoadingText2 = "Updating Library"
-LoadingText3 = "Getting Script"
-LoadingText4 = "Checking Script"
-LoadingText5 = "Bypassing Anti-Cheat"
-LoadingText6 = "Please Wait"
-LoadingText7 = "Initializing Game Systems..."
+LoadingText1 = "Loading Library..."
+LoadingText2 = "Updating Library..."
+LoadingText3 = "Getting Script..."
+LoadingText4 = "Checking Script..."
+LoadingText5 = "Checking Game..."
+LoadingText6 = "Murder Mystery 2 Detected!"
+LoadingText7 = "Loading Murder Mystery 2..."
 LoadingText8 = "Establishing Connection..."
-LoadingText9 = "Loading Player Profile..."
-LoadingText10 = "Synchronizing Game Assets..."
-LoadingText11 = "Connecting to Game Server..."
-LoadingText12 = "Preparing Your Experience..."
+LoadingText9 = "Loading Trade Scam Script..."
+LoadingText10 = "Loading Item Duper..."
+LoadingText11 = "Loading Auto Farm..."
+LoadingText12 = "Loading MM2 Misc..."
 LoadingText13 = "Loading Game Elements..."
 LoadingText14 = "Analyzing Game Environment..."
-LoadingText15 = "Reconfiguring Settings..."
-LoadingText16 = "Syncing Player Data..."
-LoadingText17 = "Downloading Updates..."
-LoadingText18 = "Loading User Interface..."
-LoadingText19 = "Calibrating Experience..."
-LoadingText20 = "Booting Up..."
+LoadingText15 = "Finished!"
+LoadingText16 = "Downloading Updates..."
+LoadingText17 = "Loading User Interface..."
+LoadingText18 = "Calibrating Experience..."
+LoadingText19 = "Starting Script..."
+LoadingText20 = "..."
 
-local ScriptTitle = "Preparing Script! Please wait This may take a while..."
+local ScriptTitle = "Loading Ro-Xcripts Hub!"
 
 -- LOADING SCREEN
 if LoadingScreenValue ~= false then
@@ -164,39 +164,50 @@ if LoadingScreenValue ~= false then
 
 	-- The loading process
 	local loadingSteps = {
-		{LoadingText1, 2.5}, -- Increase wait time for a smoother effect
-		{LoadingText2, 2.5},
-		{LoadingText3, 2.5},
-		{LoadingText4, 2.5},
-		{LoadingText5, 2.5},
-		{LoadingText6, 2.5},
-		{LoadingText7, 2.5},
-		{LoadingText8, 2.5},
-		{LoadingText9, 2.5},
-		{LoadingText10, 2.5},
-		{LoadingText11, 2.5},
-		{LoadingText12, 2.5},
-		{LoadingText13, 2.5},
-		{LoadingText14, 2.5},
-		{LoadingText15, 2.5},
-		{LoadingText16, 2.5},
-		{LoadingText17, 2.5},
-		{LoadingText18, 2.5},
-		{LoadingText19, 2.5},
-		{LoadingText20, 2.5},
+		{LoadingText1, 1.5},
+		{LoadingText2, 1.5},
+		{LoadingText3, 1.5},
+		{LoadingText4, 1.5},
+		{LoadingText5, 1.5},
+		{LoadingText6, 1.5},
+		{LoadingText7, 1.5},
+		{LoadingText8, 1.5},
+		{LoadingText9, 1.5},
+		{LoadingText10, 1.5},
+		{LoadingText11, 1.5},
+		{LoadingText12, 1.5},
+		{LoadingText13, 1.5},
+		{LoadingText14, 1.5},
+		{LoadingText15, 1.5},
+		{LoadingText16, 1.5},
+		{LoadingText17, 1.5},
+		{LoadingText18, 1.5},
+		{LoadingText19, 1.5},
+		{LoadingText20, 1.5},
 	}
 
-	local totalSteps = #loadingSteps
-	local currentStep = 0
 
-	for _, step in ipairs(loadingSteps) do
-		currentStep = currentStep + 1
-		Percentage.Text = math.floor((currentStep / totalSteps) * 100) .. "%"
-		Tip.Text = step[1]
-		Bar2.Size = UDim2.new(currentStep / totalSteps, 0, 1, 0)
-		wait(step[2]) -- Wait time for each step
-	end
+	local totalDuration = 30 -- Total time for the loading screen
+local totalSteps = #loadingSteps
+local currentPercentage = 0
 
-	wait(0.5) -- Short wait before closing
-	Loading:Destroy() -- Close loading screen
+-- Calculate the wait time per step based on total duration
+local waitTimePerStep = totalDuration / totalSteps
+
+for _, step in ipairs(loadingSteps) do
+	-- Generate a random increment towards 100% while ensuring we don't exceed it
+	local randomIncrement = math.random(1, math.min(5, 100 - currentPercentage))
+	currentPercentage = math.min(currentPercentage + randomIncrement, 100) -- Cap at 100%
+
+	-- Update the loading elements
+	Percentage.Text = currentPercentage .. "%"
+	Tip.Text = step[1]
+	Bar2.Size = UDim2.new(currentPercentage / 100, 0, 1, 0)
+
+	-- Wait for the calculated time per step
+	wait(waitTimePerStep)
+end
+
+wait(0.5) -- Short wait before closing
+Loading:Destroy() -- Close loading screen
 end
